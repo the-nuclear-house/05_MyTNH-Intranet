@@ -2,13 +2,6 @@ import { useState, useEffect } from 'react'
 
 export default function MyTNHPortal() {
   const [currentTime, setCurrentTime] = useState(new Date())
-  
-  const systemStatuses = [
-    { name: 'Network', status: 'operational' },
-    { name: 'M365', status: 'operational' },
-    { name: 'Database', status: 'operational' },
-    { name: 'Backups', status: 'operational' },
-  ]
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000)
@@ -149,6 +142,14 @@ export default function MyTNHPortal() {
 
   return (
     <div className="min-h-screen bg-[#1f2937] text-[#f7f8fa]">
+      {/* Marquee animation styles */}
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+      
       {/* Scanline overlay effect */}
       <div 
         className="fixed inset-0 pointer-events-none z-50"
@@ -177,25 +178,36 @@ export default function MyTNHPortal() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <img src="/logo-white.svg" alt="The Nuclear House" className="h-10 w-10" />
+              <img src="/logo-icon-white.svg" alt="The Nuclear House" className="h-10 w-10" />
               <div>
                 <h1 className="text-lg font-semibold tracking-wide">MyTNH</h1>
                 <p className="text-xs text-[#9babc2] tracking-widest uppercase">The Nuclear House</p>
               </div>
             </div>
 
-            {/* System Status Indicators */}
-            <div className="hidden md:flex items-center gap-6">
-              {systemStatuses.map((system, idx) => (
-                <div key={idx} className="flex items-center gap-2">
-                  <div className={`w-2 h-2 rounded-full ${
-                    system.status === 'operational' ? 'bg-[#92d050] shadow-[0_0_8px_#92d050]' :
-                    system.status === 'degraded' ? 'bg-[#f4c255] shadow-[0_0_8px_#f4c255]' :
-                    'bg-[#cc5500] shadow-[0_0_8px_#cc5500]'
-                  }`} />
-                  <span className="text-xs text-[#9babc2] uppercase tracking-wider">{system.name}</span>
+            {/* Scrolling Message Banner */}
+            <div className="hidden md:block flex-1 mx-8 overflow-hidden">
+              <div className="relative">
+                <div 
+                  className="flex whitespace-nowrap animate-marquee"
+                  style={{
+                    animation: 'marquee 30s linear infinite'
+                  }}
+                >
+                  <span className="text-sm text-[#9babc2] mx-8">⚛ Safety is our highest priority</span>
+                  <span className="text-sm text-[#92d050] mx-8">●</span>
+                  <span className="text-sm text-[#9babc2] mx-8">Nuclear excellence through quality and integrity</span>
+                  <span className="text-sm text-[#00b0f0] mx-8">●</span>
+                  <span className="text-sm text-[#9babc2] mx-8">Committed to a sustainable energy future</span>
+                  <span className="text-sm text-[#f4c255] mx-8">●</span>
+                  <span className="text-sm text-[#9babc2] mx-8">⚛ Safety is our highest priority</span>
+                  <span className="text-sm text-[#92d050] mx-8">●</span>
+                  <span className="text-sm text-[#9babc2] mx-8">Nuclear excellence through quality and integrity</span>
+                  <span className="text-sm text-[#00b0f0] mx-8">●</span>
+                  <span className="text-sm text-[#9babc2] mx-8">Committed to a sustainable energy future</span>
+                  <span className="text-sm text-[#f4c255] mx-8">●</span>
                 </div>
-              ))}
+              </div>
             </div>
 
             {/* Time Display */}

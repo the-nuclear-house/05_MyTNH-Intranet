@@ -45,7 +45,7 @@ export default function MyTNHPortal() {
         </svg>
       ),
       color: '#00b0f0',
-      href: '#'
+      href: 'https://controlroom.thenuclearhouse.co.uk'
     },
     { 
       name: 'SharePoint', 
@@ -177,16 +177,7 @@ export default function MyTNHPortal() {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#00b0f0] to-[#00b0f0]/60 flex items-center justify-center shadow-lg shadow-[#00b0f0]/20">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-6 h-6 text-white">
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="4" />
-                  <line x1="12" y1="2" x2="12" y2="6" />
-                  <line x1="12" y1="18" x2="12" y2="22" />
-                  <line x1="2" y1="12" x2="6" y2="12" />
-                  <line x1="18" y1="12" x2="22" y2="12" />
-                </svg>
-              </div>
+              <img src="/logo-white.svg" alt="The Nuclear House" className="h-10 w-10" />
               <div>
                 <h1 className="text-lg font-semibold tracking-wide">MyTNH</h1>
                 <p className="text-xs text-[#9babc2] tracking-widest uppercase">The Nuclear House</p>
